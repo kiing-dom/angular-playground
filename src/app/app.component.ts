@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+
+@Component({
+  selector: 'app-user',
+  template: `
+    Username: {{ username }}
+  `,
+  standalone: true,
+})
+export class UserComponent {
+  username = '1KiingDom'
+}
+
 @Component({
   selector: 'app-root',
-  template: `
-    Hello {{ city }}, {{ 1 + 1}}
-  `,
-  styles: `
-    :host {
-      color: #a144eb;
-    }
-  `,
+  template: `<section><app-user /></section>`,
+  imports: [UserComponent],
   standalone: true,
 })
 
