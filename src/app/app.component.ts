@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   template: `
-    Hello Universe
+    Hello {{ city }}
   `,
   styles: `
     :host {
@@ -14,4 +14,6 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
 })
 
-export class AppComponent {}
+export class AppComponent {
+  city: string = 'San Francisco' // can omit the type because of typescript's type inference
+}
