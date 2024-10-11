@@ -4,11 +4,22 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   template: `
-    <div [contentEditable]="isEditable"></div>
+    <section (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+      There's a secret message for you, hover to reveal 👀
+      {{ message }}
+    </section>
   `,
-  standalone: true
+  standalone: true,
 })
 
 export class AppComponent {
-  isEditable = true;
+  message = "";
+
+  onMouseOver() {
+    this.message = "Way to go 🚀"
+  };
+
+  onMouseOut() {
+    this.message = ""
+  }
 }
