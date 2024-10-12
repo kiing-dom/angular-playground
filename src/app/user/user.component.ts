@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-    standalone: true,
-    selector: 'app-user',
-    template: `
-        <div>User Page</div>
-    `
+  standalone: true,
+  selector: 'app-user',
+  template: `
+    <p>{{ username }}'s favorite framework: {{ favoriteFramework }}</p>
+    <label for="framework">
+        Favorite Framework:
+        <input id="framework" type="text" [(ngModel)]="favoriteFramework" />
+    </label>
+  `,
+  imports: [FormsModule],
 })
-
-export class UserComponent {}
+export class UserComponent {
+  username: string = '@KIINGDOM';
+  favoriteFramework: string = '';
+}
