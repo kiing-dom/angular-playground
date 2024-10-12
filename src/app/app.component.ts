@@ -11,9 +11,8 @@ import { CarService } from './car/car.service'
 
 export class AppComponent {
   display = ''
-  carService = inject(CarService);
 
-  constructor() {
-    this.display = this.carService.getCars().join(" ⭐ ");
+  constructor(private carService : CarService) {
+    this.display = this.carService.getCars().join(" 🐢 ")
   }
 }
