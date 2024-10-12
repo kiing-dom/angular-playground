@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     standalone: true,
     selector: 'app-user',
     template: `
-        <div> User Page</div>
+        <div>User Page</div>
     `
 })
 
