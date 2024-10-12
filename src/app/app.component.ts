@@ -1,25 +1,40 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-child',
+  styles: `
+    .btn { padding: 5px; }
+  `,
   template: `
-    <section (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
-      There's a secret message for you, hover to reveal 👀
-      {{ message }}
-    </section>
+    <button class="btn" (click)="addItem()">
+      Add Item
+    </button>
   `,
   standalone: true,
 })
 
+export class ChildComponent {
+  @Output() addItemEvent = new EventEmitter<string>()
+
+  addItem() {
+    this.addItemEvent.emit('🐢')
+  }
+}
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <app-child (addItemEvent)="addItem($event)" />
+    <p>🐢 all the way down {{ items.length }} </p>
+  `,
+  standalone: true,
+  imports: [ChildComponent]
+})
+
 export class AppComponent {
-  message = "";
+  items = new Array();
 
-  onMouseOver() {
-    this.message = "Way to go 🚀"
-  };
-
-  onMouseOut() {
-    this.message = ""
+  addItem(item: string) {
+    this.items.push(item);
   }
 }
