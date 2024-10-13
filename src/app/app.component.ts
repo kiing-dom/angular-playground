@@ -9,7 +9,8 @@ import { PalindromePipe } from "./pipes/palindrome.pipe";
     Reverse Machine: {{ word | reverse }} <br>
     Palindrome Machine: {{ word2 | palindrome }} <br>
     Palindrome Machine1: {{ word3 | palindrome }} <br>
-    <img [src]="image">
+    <img [src]="image"> <br>
+    <button>Thank you for pushing</button>
     `,
   imports: [ReversePipe, PalindromePipe],
 })
@@ -20,4 +21,8 @@ export class AppComponent {
   word3 = "bean";
 
   image = "/profile.jpg"
+
+  onClick() {
+    console.log("Thank you for pushing")
+  }
 }
