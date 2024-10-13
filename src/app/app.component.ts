@@ -8,7 +8,8 @@ import { PalindromePipe } from "./pipes/palindrome.pipe";
   template: `
     Reverse Machine: {{ word | reverse }} <br>
     Palindrome Machine: {{ word2 | palindrome }} <br>
-    Palindrome Machine1: {{ word3 | palindrome }}
+    Palindrome Machine1: {{ word3 | palindrome }} <br>
+    <img [src]="image">
     `,
   imports: [ReversePipe, PalindromePipe],
 })
@@ -17,4 +18,6 @@ export class AppComponent {
   word = "moD gniiK ot ebircsbuS";
   word2 = "racecar";
   word3 = "bean";
+
+  image = "/profile.jpg"
 }
